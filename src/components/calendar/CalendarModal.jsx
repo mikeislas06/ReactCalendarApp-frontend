@@ -7,9 +7,9 @@ import Swal from 'sweetalert2';
 
 import { uiCloseModal } from '../../actions/ui.actions';
 import {
-  eventAddNew,
   eventClearActiveEvent,
-  eventUpdated,
+  eventStartAddNew,
+  eventStartUpdate,
 } from '../../actions/events.actions';
 
 const customStyles = {
@@ -104,18 +104,9 @@ const CalendarModal = () => {
     }
 
     if (activeEvent) {
-      dispatch(eventUpdated(formValues));
+      dispatch(eventStartUpdate(formValues));
     } else {
-      dispatch(
-        eventAddNew({
-          ...formValues,
-          id: new Date().getTime(),
-          user: {
-            _id: '123',
-            name: 'Miguel',
-          },
-        })
-      );
+      dispatch(eventStartAddNew(formValues));
     }
 
     setTitleValid(true);

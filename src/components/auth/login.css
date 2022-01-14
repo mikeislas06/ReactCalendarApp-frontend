@@ -48,3 +48,7 @@
   font-weight: 600;
   text-decoration: none;
 }
+/* SWAL */
+.swal2-styled.swal2-confirm {
+  background-color: #0062cc;
+}
